@@ -7,7 +7,7 @@ const Footer: React.FC = (): JSX.Element => {
   return (
         <footer className="text-grayMedium bg-primary dark:bg-primaryDark p-4  md:flex md:items-center md:justify-between md:p-6 ">
       <span className="text-sm  sm:text-center text-grayM   edium ">
-        © 2022
+        © 2023
         <a
           href="https://dellamora.dev"
           target="_blank"
@@ -21,21 +21,21 @@ const Footer: React.FC = (): JSX.Element => {
         <li>
           <a
             target="_blank"
-            href="https://discord.gg/Xxu2raVxs5"
-            className="mr-4 hover:underline md:mr-6 "
+            href="https://www.buymeacoffee.com/dellamora"
+            className="mr-4 hover:underline md:mr-6"
             rel="noreferrer"
           >
-            Discord Server
+            Wubba lubba dub duuubb!
           </a>
         </li>
         <li>
           <a
             target="_blank"
-            href="https://www.buymeacoffee.com/dellamora"
-            className="mr-4 hover:underline md:mr-6"
+            href="https://discord.gg/Xxu2raVxs5"
+            className="mr-4 hover:underline md:mr-6 "
             rel="noreferrer"
           >
-            Buy Me A Coffee!
+            Discord Server
           </a>
         </li>
 
