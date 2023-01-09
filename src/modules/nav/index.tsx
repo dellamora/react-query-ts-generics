@@ -25,7 +25,7 @@ const Nav: React.FC = (): JSX.Element => {
           />
         </motion.div>
       {isOpen && 
-        <div className=" lg:hidden absolute top-20 left-0 right-0 h-screen w-screen font-semibold text-2xl flex flex-col gap-6 py-5 items-center bg-primary">
+        <div className=" lg:hidden z-50 absolute top-16 left-0 right-0 h-screen w-screen font-semibold text-2xl flex flex-col gap-6 py-5 items-center bg-primary">
           <Link href="/characteres">
            <h1 >Characteres </h1>
           </Link>
