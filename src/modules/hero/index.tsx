@@ -8,7 +8,6 @@ import Image from "next/image";
 const hero: React.FC = (): JSX.Element => {
   return (
     <div>
-      <Image src="/rick-and-morty-logo.png" alt="logo" width={300} height={300}/>
     </div>
   );
 };
