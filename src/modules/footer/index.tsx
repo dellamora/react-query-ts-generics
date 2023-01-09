@@ -5,7 +5,7 @@ import React from "react";
 
 const Footer: React.FC = (): JSX.Element => {
   return (
-        <footer className="text-grayMedium bg-primary dark:bg-primaryDark p-4  md:flex md:items-center md:justify-between md:p-6 ">
+        <footer className="bg-primary  p-4  md:flex md:items-center md:justify-between md:p-6 ">
       <span className="text-sm  sm:text-center text-grayM   edium ">
         © 2023
         <a
