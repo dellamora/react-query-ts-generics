@@ -19,7 +19,7 @@ const BaseLayout = ({
         ref={containerRef}
       >
         <Nav/>
-        <div className="mt-[64px]">{children}</div>
+        <div >{children}</div>
         <Footer/>
       </div>
     </div>
