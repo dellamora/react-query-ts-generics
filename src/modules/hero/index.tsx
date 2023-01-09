@@ -7,7 +7,10 @@ import Image from "next/image";
 
 const hero: React.FC = (): JSX.Element => {
   return (
-    <div>
+    <div className="flex justify-center">
+      <div className="relative w-72 h-56">
+      <Image src="/portalRAM.png" fill alt="rick and morty title"/>
+      </div>
     </div>
   );
 };
