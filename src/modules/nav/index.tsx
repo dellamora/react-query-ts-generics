@@ -12,7 +12,7 @@ const Nav: React.FC = (): JSX.Element => {
         X
       </button>
       {isOpen && 
-        <div className="block lg:hidden absolute top-10 left-0 right-0 bg-white h-[90vh] font-semibold text-2xl flex flex-col gap-4 items-center ">
+        <div className="block lg:hidden absolute top-10 left-0 right-0 bg-white h-[90vh] font-semibold text-2xl flex-col gap-4 items-center ">
           <h1 className=" mt-10">Characteres</h1>
           <h1>Locations</h1>
           <h1>Epsiodes</h1>
