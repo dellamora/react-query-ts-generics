@@ -9,10 +9,8 @@ import SearchComponent from "../../common/components/search";
 const hero: React.FC = (): JSX.Element => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="relative w-72 h-56">
-      <Image src="/portalRAM.png" fill alt="rick and morty title"/>
+      <div className="relative w-[350px] h-28">
       </div>
-      <SearchComponent/>
     </div>
   );
 };
