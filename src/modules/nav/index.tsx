@@ -12,7 +12,7 @@ const Nav: React.FC = (): JSX.Element => {
   return (
     <div className="relative flex justify-between h-50 items-center  py-2 px-8 lg:px-16 ">
       <a href="">
-       <Image alt="rick and morty log" src="/logoRAM.png" width={150} height={55} />
+       <Image alt="rick and morty log" src="/typoRAM.png" width={150} height={55} />
       </a>
       <motion.div
           initial={false}
@@ -26,14 +26,14 @@ const Nav: React.FC = (): JSX.Element => {
         </motion.div>
       {isOpen && 
         <div className=" lg:hidden z-50 absolute top-16 left-0 right-0 h-screen w-screen font-semibold text-2xl flex flex-col gap-6 py-5 items-center bg-primary">
-          <Link href="/characteres">
+          <Link href="/characteres" onClick={() => setIsOpen(current => !current)}>
            <h1 >Characteres </h1>
           </Link>
-          <Link href="/locations">
+          <Link href="/locations" onClick={() => setIsOpen(current => !current)}>
            <h1>Locations</h1>
           </Link>
-          <Link href="/epsiodes">
-           <h1>Epsiodes</h1>
+          <Link href="/episodes" onClick={() => setIsOpen(current => !current)}>
+           <h1>Episodes</h1>
           </Link>
         </div>
       }
@@ -44,8 +44,8 @@ const Nav: React.FC = (): JSX.Element => {
           <Link href="/locations">
            Locations
           </Link>
-          <Link href="/epsiodes">
-           Epsiodes
+          <Link href="/episodes">
+          Episodes
           </Link>
       </div>
     </div>
