@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import SearchComponent from "../common/components/search";
+import CardCharactere from "../common/components/cardCharactere";
 
 /* import { Container } from "./styles"; */
 
@@ -13,6 +14,7 @@ const Characteres: React.FC = (): JSX.Element => {
       <Image src="/portalRAM.png" fill alt="rick and morty title"/>
       </div>
       <SearchComponent/>
+      <CardCharactere/>
     </div>
   );
 };
