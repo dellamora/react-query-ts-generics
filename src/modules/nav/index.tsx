@@ -20,7 +20,7 @@ const Nav: React.FC = (): JSX.Element => {
           className="lg:hidden space-x-5 z-10 bg-transparent flex "
         >
           <MenuToggleIcon
-            className="stroke-primaryDark dark:stroke-whiteBasic"
+            className="stroke-primaryDark "
             onClick={() => setIsOpen(current => !current)}
           />
         </motion.div>
