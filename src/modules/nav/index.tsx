@@ -11,7 +11,7 @@ const Nav: React.FC = (): JSX.Element => {
 
   return (
     <div className="relative flex justify-between h-50 items-center  py-2 px-8 lg:px-16 ">
-      <Link href="/">
+      <Link href="/" onClick={() => setIsOpen(current => !current)}>
        <Image alt="rick and morty log" src="/typoRAM.png" width={150} height={55} />
       </Link>
       <motion.div
