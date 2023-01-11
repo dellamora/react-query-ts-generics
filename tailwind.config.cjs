@@ -12,7 +12,11 @@ module.exports = {
     fontFamily: {
       Inter: ["Inter", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        cards: "repeat(auto-fit, minmax(60px, 1fr))",
+      },
+    },
   },
   plugins: [],
 };
