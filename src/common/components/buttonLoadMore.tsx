@@ -6,7 +6,7 @@ import React from "react";
 
 const ButtonLoadMore: React.FC = (): JSX.Element => {
   return (
-    <button className="text-TextWhite rounded-lg p-2 bg-secondary uppercase border-primary hover:bg-secondary/80 hover:text-textGray/80">
+    <button className="text-TextWhite w-32 rounded-lg p-2 bg-secondary uppercase border-primary hover:bg-secondary/80 hover:text-textGray/80">
         Load More
     </button>
   );

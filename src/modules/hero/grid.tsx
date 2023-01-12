@@ -62,6 +62,121 @@ const cards = [
   {
     name: "DellaFlix ",
   },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+  {
+    name: "DellaFlix ",
+  },
+
 ];
 
 const Grid: React.FC = (): JSX.Element => {
@@ -85,7 +200,10 @@ const Grid: React.FC = (): JSX.Element => {
       </div>
 
     </motion.div>
+    <div className="flex justify-center">
+
     <ButtonLoadMore />
+    </div>
     </>
  
   );
