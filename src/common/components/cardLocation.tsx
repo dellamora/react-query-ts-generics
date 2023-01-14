@@ -6,8 +6,8 @@ import React from "react";
 
 const CardLocation: React.FC = (): JSX.Element => {
   return (
-    <div>
-      <h1> Hello, CardLocation!</h1>
+    <div className="">
+      <h1>Location</h1>
     </div>
   );
 };
