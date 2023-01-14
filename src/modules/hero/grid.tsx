@@ -161,21 +161,6 @@ const cards = [
   {
     name: "DellaFlix ",
   },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
 
 ];
 
