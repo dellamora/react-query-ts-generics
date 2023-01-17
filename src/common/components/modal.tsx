@@ -6,7 +6,7 @@ import React from "react";
 
 const Modal: React.FC = (): JSX.Element => {
   return (
-    <div className="w-full h-screen p-10">
+    <div className="absolute isent-0 z-50 bg-primary w-full h-screen p-10">
         <div>go back</div>
         <div className="flex flex-col items-center">
             <div className="rounded-full bg-primaryRed h-32 w-32"></div>
