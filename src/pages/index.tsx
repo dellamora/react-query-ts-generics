@@ -13,7 +13,6 @@ const Home: NextPage = () => {
       .then((response) => response.json())
       .then((response) => {
         setInfoData(response.results);
-        console.info(response.results);
       });
   }, []);
   
@@ -25,3 +24,4 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
