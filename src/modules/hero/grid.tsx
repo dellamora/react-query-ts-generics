@@ -5,166 +5,17 @@ import Image from "next/image";
 import SearchComponent from "../../common/components/search";
 import { motion } from "framer-motion";
 import ButtonLoadMore from "../../common/components/buttonLoadMore";
+import type { RickAndMorty } from "../../domain/interfaces";
 
-const cards = [
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
+type Props = {
+  rickanmortyAPI: Pick<
+   RickAndMorty,
+   "image"
+  >[];
+};
 
-    {
-    name: "DellaFlix ",
-  },
-    {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
-  {
-    name: "DellaFlix ",
-  },
 
-];
-
-const Grid: React.FC = (): JSX.Element => {
+const Grid = ({rickanmortyAPI}: Props): JSX.Element => {
   return (
    <>
    <motion.div
@@ -172,13 +23,13 @@ const Grid: React.FC = (): JSX.Element => {
       className="p-10 h-fit"
     >
       <div className="grid grid-cols-cards gap-10">
-        {cards.map((card, i) => {
+        {rickanmortyAPI.map((character, i) => {
           return (
             <div
-              className="rounded-lg overflow-hidden h-20 w-20 bg-TextWhite"
+              className="relative rounded-lg overflow-hidden h-20 w-20 bg-TextWhite"
               key={`card-${i}`}
             >
-              oi
+              <Image alt="pp" src={character.image} fill/>
             </div>
           );
         })}
