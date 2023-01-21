@@ -21,11 +21,11 @@ const Footer: React.FC = (): JSX.Element => {
         <li>
           <a
             target="_blank"
-            href="https://www.buymeacoffee.com/dellamora"
+            href="https://www.dellamora.dev/"
             className="mr-4 hover:underline md:mr-6"
             rel="noreferrer"
           >
-            Wubba lubba dub duuubb!
+            My website
           </a>
         </li>
         <li>
