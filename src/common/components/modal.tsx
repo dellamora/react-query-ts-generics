@@ -4,7 +4,8 @@ import React from "react";
 
 /* import { Container } from "./styles"; */
 
-const Modal: React.FC = (): JSX.Element => {
+const Modal = (): JSX.Element => {
+
   return (
     <div className="absolute isent-0 z-50 bg-primary w-full h-screen p-10">
         <div>go back</div>
@@ -21,7 +22,7 @@ const Modal: React.FC = (): JSX.Element => {
         <div>
             <h1>Episodes</h1>
             <div>
-                
+                <h1>dinfos </h1>
             </div>
         </div>
     </div>
