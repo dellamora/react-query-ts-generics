@@ -16,6 +16,7 @@ const Modal = (): JSX.Element => {
         <div>
             <h1>Informations</h1>
             <div>
+            <h1>more info here</h1>
 
             </div>
         </div>
