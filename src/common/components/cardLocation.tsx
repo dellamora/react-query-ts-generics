@@ -8,6 +8,7 @@ const CardLocation: React.FC = (): JSX.Element => {
   return (
     <div className="">
       <h1>Location</h1>
+      <p>more info here</p>
     </div>
   );
 };
