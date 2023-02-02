@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React from "react";
-import Modal from "../common/components/modal";
+import Modal from "../common/components/modal/index";
 
 /* import { Container } from "./styles"; */
 
