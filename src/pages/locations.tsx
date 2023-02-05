@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React from "react";
+import CardLocation from "../common/components/cardLocation";
 // import Modal from "../common/components/modal/index";
 
 /* import { Container } from "./styles"; */
@@ -8,7 +9,10 @@ import React from "react";
 const pages: React.FC = (): JSX.Element => {
   return (
   // <Modal/> fiz modal error
-  <div>oi</div>
+  <div>
+    <CardLocation/>
+
+  </div>
   );
 };
 
