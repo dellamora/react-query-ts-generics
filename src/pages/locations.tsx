@@ -7,7 +7,8 @@ import Modal from "../common/components/modal/index";
 
 const pages: React.FC = (): JSX.Element => {
   return (
-  <Modal/>
+  // <Modal/> fiz modal error
+  <div>oi</div>
   );
 };
 
