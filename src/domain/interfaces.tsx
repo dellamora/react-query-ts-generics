@@ -1,18 +1,22 @@
 export interface BaseSearchResponse<T> {
-  page: number;
-  total_pages: number;
-  total_results: number;
-  results: T;
+  info: Info;
+  results: T[];
 }
-export interface RickAndMorty {
+export interface Info {
+  count: number;
+  pages: number;
+  next: string;
+  prev: null;
+}
+export interface Character {
   id: number;
   name: string;
   status: Status;
   species: Species;
   type: string;
   gender: Gender;
-  origin: Location;
-  location: Location;
+  origin: LocationCharacter;
+  location: LocationCharacter;
   image: string;
   episode: string[];
   url: string;
@@ -25,7 +29,7 @@ export enum Gender {
   Unknown = "unknown",
 }
 
-export interface Location {
+export interface LocationCharacter {
   name: string;
   url: string;
 }
@@ -39,4 +43,24 @@ export enum Status {
   Alive = "Alive",
   Dead = "Dead",
   Unknown = "unknown",
+}
+
+export interface Location {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+  url: string;
+  created: string;
+}
+
+export interface Episode {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: string[];
+  url: string;
+  created: string;
 }
