@@ -8,11 +8,10 @@ import CardLocation from "../common/components/cardLocation";
 
 const pages: React.FC = (): JSX.Element => {
   return (
-  // <Modal/> fiz modal error
-  <div>
-    <CardLocation/>
-
-  </div>
+    // <Modal/> fiz modal error
+    <div>
+      <CardLocation />
+    </div>
   );
 };
 

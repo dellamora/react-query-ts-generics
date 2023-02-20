@@ -2,11 +2,10 @@
 
 import React from "react";
 
-
 const Footer: React.FC = (): JSX.Element => {
   return (
-        <footer className="bg-primary  p-4  md:flex md:items-center md:justify-between md:p-6 ">
-      <span className="text-sm  sm:text-center text-grayM   edium ">
+    <footer className="bg-primary  p-4  md:flex md:items-center md:justify-between md:p-6 ">
+      <span className="text-grayM  edium text-sm   sm:text-center ">
         © 2023
         <a
           href="https://dellamora.dev"
@@ -17,7 +16,7 @@ const Footer: React.FC = (): JSX.Element => {
           - Dellamora
         </a>
       </span>
-      <ul className="flex flex-wrap items-center mt-3 text-sm   sm:mt-0">
+      <ul className="mt-3 flex flex-wrap items-center text-sm   sm:mt-0">
         <li>
           <a
             target="_blank"

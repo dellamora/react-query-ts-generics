@@ -8,40 +8,31 @@ import ButtonLoadMore from "../../common/components/buttonLoadMore";
 import type { RickAndMorty } from "../../domain/interfaces";
 
 type Props = {
-  rickanmortyAPI: Pick<
-   RickAndMorty,
-   "image"
-  >[]
+  rickanmortyAPI: Pick<RickAndMorty, "image">[];
   onLoadMore: () => void;
 };
 
-
-const Grid = ({rickanmortyAPI, onLoadMore}: Props): JSX.Element => {
-
+const Grid = ({ rickanmortyAPI, onLoadMore }: Props): JSX.Element => {
   return (
-   <>
-   <motion.div
-      id="grid"
-      className="p-10 h-fit"
-    >
-      <div className="grid grid-cols-cards gap-10">
-        {rickanmortyAPI.map((character, i) => {
-          return (
-            <div
-              className="relative rounded-lg overflow-hidden h-20 w-20 bg-TextWhite"
-              key={`card-${i}`}
-            >
-              <Image alt="pp" src={character.image} fill/>
-            </div>
-          );
-        })}
+    <>
+      <motion.div id="grid" className="h-fit p-10">
+        <div className="grid grid-cols-cards gap-10">
+          {rickanmortyAPI.map((character, i) => {
+            return (
+              <div
+                className="relative h-20 w-20 overflow-hidden rounded-lg bg-TextWhite"
+                key={`card-${i}`}
+              >
+                <Image alt="pp" src={character.image} fill />
+              </div>
+            );
+          })}
+        </div>
+      </motion.div>
+      <div className="flex justify-center">
+        <ButtonLoadMore onClick={onLoadMore} />
       </div>
-    </motion.div>
-    <div className="flex justify-center">
-    <ButtonLoadMore onClick={onLoadMore} />
-    </div>
     </>
- 
   );
 };
 

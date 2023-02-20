@@ -4,11 +4,11 @@ import React, { useMemo, useState } from "react";
 import type { BaseSearchResponse, RickAndMorty } from "../../domain/interfaces";
 import { useQuery } from "@tanstack/react-query";
 
-const APILInk = "https://rickandmortyapi.com/api/character/";
+const APILInk = "https://rickandmortyapi.com/api/location/";
 
-const useCharacters = () => {
+const useEpisodes = () => {
   const [page, setPage] = useState(1);
-  const [characters, setCharacters] = useState<RickAndMorty[]>([]);
+  const [episodes, setEpisodes] = useState<RickAndMorty[]>([]);
 
   const { isLoading: baseLoading } = useQuery<
     BaseSearchResponse<RickAndMorty[]>
@@ -16,7 +16,7 @@ const useCharacters = () => {
     queryKey: ["repoData", page],
     queryFn: () => fetch(`${APILInk}?page=${page}`).then(res => res.json()),
     onSuccess(data) {
-      setCharacters(current => [...current, ...data.results]);
+      setEpisodes(current => [...current, ...data.results]);
     },
     keepPreviousData: true,
   });
@@ -26,9 +26,9 @@ const useCharacters = () => {
 
   return {
     isLoading,
-    characters,
+    episodes,
     setPage,
   };
 };
 
-export default useCharacters;
+export default useEpisodes;

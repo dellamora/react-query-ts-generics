@@ -8,19 +8,19 @@ const BaseLayout = ({
   children: React.ReactNode;
 }): JSX.Element => {
   const containerRef = useRef(null);
-//   const { scrollYProgress } = useScroll({
-//     container: containerRef,
-//   });
+  //   const { scrollYProgress } = useScroll({
+  //     container: containerRef,
+  //   });
   return (
     <div className="h-screen w-screen overflow-y-hidden">
       <div id="modal-root" />
       <div
-        className="h-screen flex flex-col bg-primary overflow-auto "
+        className="flex h-screen flex-col overflow-auto bg-primary "
         ref={containerRef}
       >
-        <Nav/>
-        <div >{children}</div>
-        <Footer/>
+        <Nav />
+        <div>{children}</div>
+        <Footer />
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import "../common/styles/globals.css";
 import BaseLayout from "../layouts/baseLayout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-
 const queryClient = new QueryClient();
 export default function App({ Component, pageProps }: AppProps) {
   return (

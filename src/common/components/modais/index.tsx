@@ -6,38 +6,38 @@ import ArrowBack from "../../svgs/arrow-back";
 /* import { Container } from "./styles"; */
 
 const Modal = (): JSX.Element => {
-    const [mount, setMount] = useState(false);
-    useEffect(() => {
-      setMount(true);
-    }, []);
-    if (!mount) {
-      return <></>;
-    }
-  
-    return createPortal(
-        <>
-       <div className="absolute isent-0 z-50 bg-primary w-full h-screen p-4">
-        <ArrowBack/>
-        <div className="flex flex-col items-center">
-            <div className="rounded-full bg-primaryRed  h-28 w-28"></div>
-            <h1 className="text-TextWhite text-2xl">Nome do personagem</h1>
-        </div>
-        <div>
-            <h1>Informations</h1>
-            <div>
-            <h1>more info here</h1>
+  const [mount, setMount] = useState(false);
+  useEffect(() => {
+    setMount(true);
+  }, []);
+  if (!mount) {
+    return <></>;
+  }
 
-            </div>
+  return createPortal(
+    <>
+      <div className="isent-0 absolute z-50 h-screen w-full bg-primary p-4">
+        <ArrowBack />
+        <div className="flex flex-col items-center">
+          <div className="h-28 w-28  rounded-full bg-primaryRed"></div>
+          <h1 className="text-2xl text-TextWhite">Nome do personagem</h1>
         </div>
         <div>
-            <h1>Episodes</h1>
-            <div>
-                <h1>dinfos </h1>
-            </div>
+          <h1>Informations</h1>
+          <div>
+            <h1>more info here</h1>
+          </div>
         </div>
-    </div>
+        <div>
+          <h1>Episodes</h1>
+          <div>
+            <h1>dinfos </h1>
+          </div>
+        </div>
+      </div>
     </>,
-     document.getElementById("modal-root"),
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    document.getElementById("modal-root")!,
   );
 };
 

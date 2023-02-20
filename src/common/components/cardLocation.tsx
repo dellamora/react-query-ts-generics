@@ -6,23 +6,22 @@ import React from "react";
 
 const CardLocation: React.FC = (): JSX.Element => {
   const locations = [
-    {location: "one", ep: "232"},
-    {location: "two", ep: "223"},
-  ]
+    { location: "one", ep: "232" },
+    { location: "two", ep: "223" },
+  ];
   return (
     <>
-       {locations.map(location => {
-         return (
-           <>
-          <div className="h-28 w-80 p-4 flex flex-col justify-center items-center rounded-md border-2 border-primary bg-secondary">
-            <h1 className="font-bold">Location: {location.location}</h1>
-            <h1 className="text-textGray">EP: {location.ep}</h1>
+      {locations.map(location => {
+        return (
+          <>
+            <div className="flex h-28 w-80 flex-col items-center justify-center rounded-md border-2 border-primary bg-secondary p-4">
+              <h1 className="font-bold">Location: {location.location}</h1>
+              <h1 className="text-textGray">EP: {location.ep}</h1>
             </div>
           </>
-          )
-        })}
-        </>
-       
+        );
+      })}
+    </>
   );
 };
 

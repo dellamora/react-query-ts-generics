@@ -4,14 +4,18 @@ import React from "react";
 import type { Icon } from "../../domain/components/icon";
 
 const Path = (props: {
-    variants?: Variants, className?: string, d?: string, transition?: Transition }) => (
-    <motion.path
-     fill="transparent"
-     strokeWidth="3"
-     stroke="#F1F1F1"
-     strokeLinecap="round"
-     {...props}
-    />
+  variants?: Variants;
+  className?: string;
+  d?: string;
+  transition?: Transition;
+}) => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="3"
+    stroke="#F1F1F1"
+    strokeLinecap="round"
+    {...props}
+  />
 );
 const MenuToggleIcon: Icon = ({ onClick, className }): JSX.Element => {
   return (
