@@ -1,3 +1,9 @@
+export interface BaseSearchResponse<T> {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: T;
+}
 export interface RickAndMorty {
     id:       number;
     name:     string;
