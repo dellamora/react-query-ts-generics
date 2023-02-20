@@ -7,7 +7,7 @@ import CardCharactere from "../common/components/cardCharactere";
 
 /* import { Container } from "./styles"; */
 
-const Characteres: React.FC = (): JSX.Element => {
+const characters: React.FC = (): JSX.Element => {
   return (
     <div className="flex flex-col justify-center items-center space-y-6">
       <div className="relative w-72 h-60">
@@ -19,4 +19,4 @@ const Characteres: React.FC = (): JSX.Element => {
   );
 };
 
-export default Characteres;
+export default characters;

@@ -7,9 +7,9 @@ import { useQuery } from "@tanstack/react-query";
 
 const APILInk = "https://rickandmortyapi.com/api/character/";
 
-const useCharacteres = () => {
+const useCharacters = () => {
   const [page, setPage] = useState(1)
-  const [characteres, setCharacteres] = useState<RickAndMorty[]>([])
+  const [characters, setCharacters] = useState<RickAndMorty[]>([])
 
   const {
     isLoading: baseLoading,
@@ -23,7 +23,7 @@ const useCharacteres = () => {
         res.json(),
       ),
       onSuccess(data) {
-        setCharacteres(current => [...current, ...data.results])
+        setCharacters(current => [...current, ...data.results])
       },
       keepPreviousData: true
   });
@@ -33,9 +33,9 @@ const useCharacteres = () => {
 
   return {
     isLoading,
-    characteres,
+    characters,
     setPage
   }
 };
 
-export default useCharacteres;
+export default useCharacters;

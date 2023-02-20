@@ -26,8 +26,8 @@ const Nav: React.FC = (): JSX.Element => {
         </motion.div>
       {isOpen && 
         <div className=" lg:hidden z-50 absolute top-16 left-0 right-0 h-screen w-screen font-semibold text-2xl flex flex-col gap-6 py-5 items-center bg-primary">
-          <Link href="/characteres" onClick={() => setIsOpen(current => !current)}>
-           <h1 >Characteres </h1>
+          <Link href="/characters" onClick={() => setIsOpen(current => !current)}>
+           <h1 >characters </h1>
           </Link>
           <Link href="/locations" onClick={() => setIsOpen(current => !current)}>
            <h1>Locations</h1>
@@ -38,8 +38,8 @@ const Nav: React.FC = (): JSX.Element => {
         </div>
       }
       <div className="hidden lg:flex justify-between gap-4 text-lg font-semibold">
-          <Link href="/characteres">
-           Characteres
+          <Link href="/characters">
+           characters
           </Link>
           <Link href="/locations">
            Locations
