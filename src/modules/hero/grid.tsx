@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import SearchComponent from "../../common/components/search";
 import { motion } from "framer-motion";
@@ -11,11 +11,13 @@ type Props = {
   rickanmortyAPI: Pick<
    RickAndMorty,
    "image"
-  >[];
+  >[]
+  onLoadMore: () => void;
 };
 
 
-const Grid = ({rickanmortyAPI}: Props): JSX.Element => {
+const Grid = ({rickanmortyAPI, onLoadMore}: Props): JSX.Element => {
+
   return (
    <>
    <motion.div
@@ -34,11 +36,9 @@ const Grid = ({rickanmortyAPI}: Props): JSX.Element => {
           );
         })}
       </div>
-
     </motion.div>
     <div className="flex justify-center">
-
-    <ButtonLoadMore />
+    <ButtonLoadMore onClick={onLoadMore} />
     </div>
     </>
  
