@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div>
       <Grid
-        rickanmortyAPI={characters}
+        rickandmortyAPI={characters}
         onLoadMore={() => {
           setPage(current => current + 1);
         }}
