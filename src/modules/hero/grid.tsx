@@ -8,16 +8,16 @@ import ButtonLoadMore from "../../common/components/buttonLoadMore";
 import type { Character } from "../../domain/interfaces";
 
 type Props = {
-  rickanmortyAPI: Pick<Character, "image">[];
+  rickandmortyAPI: Pick<Character, "image">[];
   onLoadMore: () => void;
 };
 
-const Grid = ({ rickanmortyAPI, onLoadMore }: Props): JSX.Element => {
+const Grid = ({ rickandmortyAPI, onLoadMore }: Props): JSX.Element => {
   return (
     <>
       <motion.div id="grid" className="h-fit p-10">
         <div className="grid grid-cols-cards gap-10">
-          {rickanmortyAPI.map((character, i) => {
+          {rickandmortyAPI.map((character, i) => {
             return (
               <div
                 className="relative h-20 w-20 overflow-hidden rounded-lg bg-TextWhite"

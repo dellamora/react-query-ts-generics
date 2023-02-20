@@ -4,12 +4,19 @@ import React from "react";
 import Image from "next/image";
 import SearchComponent from "../common/components/search";
 import CardCharactere from "../common/components/cardCharactere";
+import useRickAndMortyAPI from "../common/hooks/useRickAndMortyAPI";
 
 /* import { Container } from "./styles"; */
 
 const characters: React.FC = (): JSX.Element => {
+  const {
+    data: characters,
+    isLoading,
+    setPage,
+  } = useRickAndMortyAPI("character");
+
   return (
-    <div className="flex flex-col items-center justify-center space-y-6">
+    <div className="flex flex-col items-center justify-center space-y-6 ">
       <div className="relative h-60 w-72">
         <Image
           src="/portalRAM.png"
@@ -19,7 +26,7 @@ const characters: React.FC = (): JSX.Element => {
         />
       </div>
       <SearchComponent />
-      <CardCharactere />
+      <CardCharactere rickandmortyAPI={characters} />
     </div>
   );
 };
