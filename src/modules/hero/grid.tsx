@@ -5,10 +5,10 @@ import Image from "next/image";
 import SearchComponent from "../../common/components/search";
 import { motion } from "framer-motion";
 import ButtonLoadMore from "../../common/components/buttonLoadMore";
-import type { RickAndMorty } from "../../domain/interfaces";
+import type { Character } from "../../domain/interfaces";
 
 type Props = {
-  rickanmortyAPI: Pick<RickAndMorty, "image">[];
+  rickanmortyAPI: Pick<Character, "image">[];
   onLoadMore: () => void;
 };
 
