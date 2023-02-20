@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         cards: "repeat(auto-fit, minmax(60px, 1fr))",
+        charactersCards: "repeat(auto-fit, minmax(320px, 1fr))",
       },
     },
   },
