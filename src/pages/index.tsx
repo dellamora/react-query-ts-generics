@@ -9,7 +9,7 @@ export default function Home() {
   const {
     data: characters,
     isLoading,
-    setPage,
+    fetchNextPage,
   } = useRickAndMortyAPI("character");
 
   return (
@@ -17,7 +17,8 @@ export default function Home() {
       <Grid
         rickandmortyAPI={characters}
         onLoadMore={() => {
-          setPage(current => current + 1);
+          if (isLoading) return;
+          fetchNextPage();
         }}
       />
     </div>

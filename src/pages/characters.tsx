@@ -9,11 +9,7 @@ import useRickAndMortyAPI from "../common/hooks/useRickAndMortyAPI";
 /* import { Container } from "./styles"; */
 
 const characters: React.FC = (): JSX.Element => {
-  const {
-    data: characters,
-    isLoading,
-    setPage,
-  } = useRickAndMortyAPI("character");
+  const { data: characters, isLoading } = useRickAndMortyAPI("character");
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6 ">
