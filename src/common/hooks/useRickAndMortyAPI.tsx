@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React, { useMemo, useState } from "react";
-import type {
-  BaseSearchResponse,
-  Location,
-  Character,
-  Episode,
-} from "../../domain/interfaces";
-import { useQuery } from "@tanstack/react-query";
+import { useCallback } from "react";
+import type { Location, Character, Episode } from "../../domain/interfaces";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 type Endpoints = {
   location: Location;
@@ -15,35 +10,38 @@ type Endpoints = {
   episode: Episode;
 };
 const useRickAndMortyAPI = <T extends keyof Endpoints>(endpoint: T) => {
-  const APILInk = "https://rickandmortyapi.com/api/";
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState<Endpoints[T][]>([]);
-  // pq aqui é uma lista
-  const { isLoading: baseLoading } = useQuery<BaseSearchResponse<Endpoints[T]>>(
-    // e aqui n
-    {
-      queryKey: ["apiCall", endpoint, page],
-      queryFn: () =>
-        fetch(`${APILInk}/${endpoint}?page=${page}`).then(res => res.json()),
-      onSuccess(data) {
-        setData(current => [
-          ...current,
-          ...data.results.filter(d => {
-            return !current.map(c => c.id).includes(d.id);
-          }),
-        ]);
-      },
-      keepPreviousData: true,
+  const getAPI = useCallback(
+    async ({ pageParam = 1 }) => {
+      const APILInk = "https://rickandmortyapi.com/api/";
+      const response =
+        (
+          await fetch(`${APILInk}/${endpoint}?page=${pageParam}`).then(res =>
+            res.json(),
+          )
+        )?.results || ([] as Endpoints[T][]);
+      return {
+        data: response,
+        nextCursor: pageParam + 1,
+      };
     },
+    [endpoint],
   );
-  const isLoading = useMemo(() => {
-    return baseLoading;
-  }, [baseLoading]);
+
+  const { isLoading, data, fetchNextPage } = useInfiniteQuery({
+    queryKey: ["apiCall"],
+    queryFn: getAPI,
+    keepPreviousData: true,
+    getNextPageParam: lastPage => lastPage.nextCursor,
+  });
 
   return {
     isLoading,
-    setPage,
-    data,
+    data: !data
+      ? []
+      : data.pages.reduce((acc, curr) => {
+          return [...acc, ...curr.data];
+        }, [] as Endpoints[T][]),
+    fetchNextPage,
   };
 };
 
