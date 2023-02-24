@@ -2,14 +2,10 @@
 
 import React from "react";
 import CardLocation from "../common/components/cardLocation";
-// import Modal from "../common/components/modal/index";
-
-/* import { Container } from "./styles"; */
 
 const pages: React.FC = (): JSX.Element => {
   return (
-    // <Modal/> fiz modal error
-    <div>
+    <div className="flex flex-col items-center justify-center gap-y-6">
       <CardLocation />
     </div>
   );
