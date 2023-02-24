@@ -2,9 +2,7 @@
 
 import React from "react";
 
-/* import { Container } from "./styles"; */
-
-const CardLocation: React.FC = (): JSX.Element => {
+const CardLocationandEpisodes: React.FC = (): JSX.Element => {
   const locations = [
     { location: "one", ep: "232" },
     { location: "two", ep: "223" },
@@ -25,4 +23,4 @@ const CardLocation: React.FC = (): JSX.Element => {
   );
 };
 
-export default CardLocation;
+export default CardLocationandEpisodes;
