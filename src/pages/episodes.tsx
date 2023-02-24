@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import SearchComponent from "../common/components/search";
 
 import React from "react";
 
@@ -6,8 +7,8 @@ import React from "react";
 
 const pages: React.FC = (): JSX.Element => {
   return (
-    <div>
-      <h1> Hello, pages!</h1>
+    <div className="flex flex-col items-center justify-center space-y-6 ">
+      <SearchComponent />
     </div>
   );
 };
