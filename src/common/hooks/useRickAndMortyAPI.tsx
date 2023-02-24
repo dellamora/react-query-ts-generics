@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import type { Location, Character, Episode } from "../../domain/interfaces";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
@@ -9,13 +9,30 @@ type Endpoints = {
   character: Character;
   episode: Episode;
 };
-const useRickAndMortyAPI = <T extends keyof Endpoints>(endpoint: T) => {
+
+type Filters = {
+  location: { name?: string; type?: string; dimension?: string };
+  character: {
+    name?: string;
+    status?: "alive" | "dead" | "unknown";
+    species?: string;
+    type?: string;
+    gender?: "female" | "male" | "genderless" | "unknown";
+  };
+  episode: { name?: string; episode?: string };
+};
+const useRickAndMortyAPI = <T extends keyof Endpoints>(
+  endpoint: T,
+  filters: Filters[T] = {},
+) => {
+  const APILInk = "https://rickandmortyapi.com/api/";
   const getAPI = useCallback(
     async ({ pageParam = 1 }) => {
-      const APILInk = "https://rickandmortyapi.com/api/";
+      const queryObj = { page: pageParam.toString(), ...filters };
+      const query = new URLSearchParams(queryObj);
       const response =
         (
-          await fetch(`${APILInk}/${endpoint}?page=${pageParam}`).then(res =>
+          await fetch(`${APILInk}/${endpoint}?${query.toString()}`).then(res =>
             res.json(),
           )
         )?.results || ([] as Endpoints[T][]);
@@ -24,11 +41,13 @@ const useRickAndMortyAPI = <T extends keyof Endpoints>(endpoint: T) => {
         nextCursor: pageParam + 1,
       };
     },
-    [endpoint],
+    [endpoint, filters],
   );
 
   const { isLoading, data, fetchNextPage } = useInfiniteQuery({
-    queryKey: ["apiCall"],
+    queryKey: [
+      `apiCall-${endpoint}-${new URLSearchParams(filters).toString()}`,
+    ],
     queryFn: getAPI,
     keepPreviousData: true,
     getNextPageParam: lastPage => lastPage.nextCursor,

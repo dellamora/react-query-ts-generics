@@ -1,9 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-const SearchComponent: React.FC = (): JSX.Element => {
+const SearchComponent = ({
+  onChange,
+}: {
+  onChange: (value: string) => void;
+}): JSX.Element => {
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => onChange(value), 500);
+    return () => clearTimeout(timeOut);
+  }, [value]);
   return (
     <>
       <div className="relative h-60 w-72">
@@ -21,6 +31,8 @@ const SearchComponent: React.FC = (): JSX.Element => {
           name="search"
           id="Search"
           placeholder="Filter by name..."
+          value={value}
+          onChange={e => setValue(e.target.value)}
         />
         <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
           <svg
