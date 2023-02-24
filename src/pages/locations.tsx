@@ -2,10 +2,12 @@
 
 import React from "react";
 import CardLocation from "../common/components/cardLocation";
+import SearchComponent from "../common/components/search";
 
 const pages: React.FC = (): JSX.Element => {
   return (
-    <div className="flex flex-col items-center justify-center gap-y-6">
+    <div className="flex flex-col items-center justify-center space-y-6 ">
+      <SearchComponent />
       <CardLocation />
     </div>
   );
