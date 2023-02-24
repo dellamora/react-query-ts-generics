@@ -44,16 +44,19 @@ const useRickAndMortyAPI = <T extends keyof Endpoints>(
     [endpoint, filters],
   );
 
-  const { isLoading, data, fetchNextPage } = useInfiniteQuery({
-    queryKey: [
-      `apiCall-${endpoint}-${new URLSearchParams(filters).toString()}`,
-    ],
-    queryFn: getAPI,
-    keepPreviousData: true,
-    getNextPageParam: lastPage => lastPage.nextCursor,
-  });
+  const { isLoading, data, fetchNextPage, isFetchingNextPage, hasNextPage } =
+    useInfiniteQuery({
+      queryKey: [
+        `apiCall-${endpoint}-${new URLSearchParams(filters).toString()}`,
+      ],
+      queryFn: getAPI,
+      keepPreviousData: true,
+      getNextPageParam: lastPage => lastPage.nextCursor,
+    });
 
   return {
+    isFetchingNextPage,
+    hasNextPage,
     isLoading,
     data: !data
       ? []
