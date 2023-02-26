@@ -5,12 +5,29 @@ import SearchComponent from "../common/components/search";
 import useRickAndMortyAPI from "../common/hooks/useRickAndMortyAPI";
 import ContainerGrid from "../common/components/containerGrid";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const characters: React.FC = (): JSX.Element => {
   const [search, setSearch] = useState("");
-  const { data: characters, isLoading } = useRickAndMortyAPI("character", {
+  const { ref, inView } = useInView({});
+
+  const {
+    data: characters,
+    isLoading,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNextPage,
+  } = useRickAndMortyAPI("character", {
     name: search,
   });
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      if (inView) fetchNextPage();
+    }, 100);
+    return () => clearTimeout(timeOut);
+  }, [inView, isFetchingNextPage]);
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6 ">
@@ -37,6 +54,9 @@ const characters: React.FC = (): JSX.Element => {
             </button>
           );
         })}
+        {!isLoading && !isFetchingNextPage && hasNextPage ? (
+          <div ref={ref} className="-mt-60 flex h-10 justify-center " />
+        ) : null}
         {/* <Modal /> */}
       </ContainerGrid>
     </div>
