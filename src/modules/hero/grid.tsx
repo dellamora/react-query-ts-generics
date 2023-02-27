@@ -15,12 +15,14 @@ const Grid = ({ rickandmortyAPI }: Props): JSX.Element => {
       <div className="grid grid-cols-cards gap-10">
         {rickandmortyAPI.map((character, i) => {
           return (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { delay: i * 0.1 } }}
               className="relative h-20 w-20 overflow-hidden rounded-lg bg-TextWhite"
               key={`card-${i}`}
             >
               <Image alt="pp" src={character.image} fill />
-            </div>
+            </motion.div>
           );
         })}
       </div>
