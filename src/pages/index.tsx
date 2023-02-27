@@ -34,11 +34,11 @@ export default function Home() {
             return (
               <motion.div
                 initial={{ opacity: 0 }}
+                onAnimationComplete={onAnimationComplete}
                 animate={{
                   opacity: 1,
                   transition: { delay: (i - animationIndex) * 0.1 },
                 }}
-                onAnimationComplete={onAnimationComplete}
                 className="relative h-20 w-20 overflow-hidden rounded-lg bg-TextWhite"
                 key={`card-${i}`}
               >
