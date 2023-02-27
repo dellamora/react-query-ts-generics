@@ -35,6 +35,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0 }}
                 onAnimationComplete={onAnimationComplete}
+                whileHover={{ scale: 1.4 }}
                 animate={{
                   opacity: 1,
                   transition: { delay: (i - animationIndex) * 0.1 },
