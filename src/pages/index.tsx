@@ -1,6 +1,6 @@
 import useRickAndMortyAPI from "../common/hooks/useRickAndMortyAPI";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -13,13 +13,18 @@ export default function Home() {
     hasNextPage,
   } = useRickAndMortyAPI("character");
   const { ref, inView } = useInView({});
+  const [animationIndex, setAnimationIndex] = useState(0);
+
+  const onAnimationComplete = () => {
+    setAnimationIndex(animationIndex + 1);
+  };
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
       if (inView) fetchNextPage();
     }, 100);
     return () => clearTimeout(timeOut);
-  }, [inView, isFetchingNextPage]);
+  }, [characters]);
 
   return (
     <div>
@@ -29,7 +34,11 @@ export default function Home() {
             return (
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { delay: i * 0.1 } }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: (i - animationIndex) * 0.1 },
+                }}
+                onAnimationComplete={onAnimationComplete}
                 className="relative h-20 w-20 overflow-hidden rounded-lg bg-TextWhite"
                 key={`card-${i}`}
               >
@@ -40,7 +49,7 @@ export default function Home() {
         </div>
       </motion.div>
       {!isLoading && !isFetchingNextPage && hasNextPage ? (
-        <div ref={ref} className="-mt-60 flex h-10 justify-center " />
+        <div ref={ref} className="-mt-32 flex h-10 justify-center " />
       ) : null}
     </div>
   );
