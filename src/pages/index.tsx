@@ -1,4 +1,3 @@
-import Grid from "../modules/hero/grid";
 import useRickAndMortyAPI from "../common/hooks/useRickAndMortyAPI";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
