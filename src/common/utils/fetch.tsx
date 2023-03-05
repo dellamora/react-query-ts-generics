@@ -20,23 +20,22 @@ type Filters = {
   episode: { name?: string; episode?: string };
 };
 
-export const fetchAPI = async <T extends keyof Endpoints>({
-  pageParam = 1,
-  endpoint,
-  filters = {},
-}: {
+type FetchArgs<T extends keyof Endpoints> = {
   pageParam: number;
   endpoint: T;
   filters?: Filters[T];
-}) => {
+};
+export const fetchAPI = async <T extends keyof Endpoints>(
+  args: FetchArgs<T>,
+) => {
+  const { pageParam = 1, endpoint, filters = {} } = args;
   const queryObj = { page: pageParam.toString(), ...filters };
   const query = new URLSearchParams(queryObj);
-  const response =
-    (
-      await fetch(`${APILInk}/${endpoint}?${query.toString()}`).then(res =>
-        res.json(),
-      )
-    )?.results || ([] as Endpoints[T][]);
+  const response = ((
+    await fetch(`${APILInk}/${endpoint}?${query.toString()}`).then(res =>
+      res.json(),
+    )
+  )?.results || []) as Endpoints[T][];
   return {
     data: response,
     nextCursor: pageParam + 1,
