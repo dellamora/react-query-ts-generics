@@ -3,6 +3,7 @@
 import { useCallback, useMemo } from "react";
 import type { Location, Character, Episode } from "../../domain/interfaces";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { fetchAPI } from "../utils/fetch";
 
 type Endpoints = {
   location: Location;
@@ -25,25 +26,12 @@ const useRickAndMortyAPI = <T extends keyof Endpoints>(
   endpoint: T,
   filters: Filters[T] = {},
 ) => {
-  const APILInk = "https://rickandmortyapi.com/api/";
   const getAPI = useCallback(
     async ({ pageParam = 1 }) => {
-      const queryObj = { page: pageParam.toString(), ...filters };
-      const query = new URLSearchParams(queryObj);
-      const response =
-        (
-          await fetch(`${APILInk}/${endpoint}?${query.toString()}`).then(res =>
-            res.json(),
-          )
-        )?.results || ([] as Endpoints[T][]);
-      return {
-        data: response,
-        nextCursor: pageParam + 1,
-      };
+      return await fetchAPI({ endpoint, pageParam, filters });
     },
     [endpoint, filters],
   );
-
   const { isLoading, data, fetchNextPage, isFetchingNextPage, hasNextPage } =
     useInfiniteQuery({
       queryKey: [
