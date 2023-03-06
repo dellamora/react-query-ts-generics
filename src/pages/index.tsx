@@ -26,6 +26,7 @@ const Home: NextPage<
           {characters.map((character, i) => {
             return (
               <motion.div
+                whileHover={{ scale: 1.4 }}
                 initial={{ opacity: 0 }}
                 onAnimationComplete={onAnimationComplete}
                 animate={
