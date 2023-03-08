@@ -57,7 +57,7 @@ const characters: React.FC = (): JSX.Element => {
         {!isLoading && !isFetchingNextPage && hasNextPage ? (
           <div ref={ref} className="-mt-60 flex h-10 justify-center " />
         ) : null}
-        {/* <Modal /> */}
+        <Modal />
       </ContainerGrid>
     </div>
   );
