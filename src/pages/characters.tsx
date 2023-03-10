@@ -7,8 +7,10 @@ import ContainerGrid from "../common/components/containerGrid";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import Modal from "../common/components/modal";
 
 const characters: React.FC = (): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const { ref, inView } = useInView({});
 
@@ -36,6 +38,7 @@ const characters: React.FC = (): JSX.Element => {
         {characters.map(character => {
           return (
             <button
+              onClick={() => setIsOpen(true)}
               key={`character-${character.id}`}
               className=" w-fit overflow-hidden rounded-md border border-secondary bg-secondary shadow-md md:w-full"
             >
@@ -57,7 +60,7 @@ const characters: React.FC = (): JSX.Element => {
         {!isLoading && !isFetchingNextPage && hasNextPage ? (
           <div ref={ref} className="-mt-60 flex h-10 justify-center " />
         ) : null}
-        <Modal />
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </ContainerGrid>
     </div>
   );
