@@ -11,7 +11,7 @@ const SearchComponent = ({
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    const timeOut = setTimeout(() => onChange(value), 500);
+    const timeOut = setTimeout(() => onChange(value), 250);
     return () => clearTimeout(timeOut);
   }, [value]);
   return (
