@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import type { Location, Character, Episode } from "../../domain/interfaces";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchAPI } from "../utils/fetch";
