@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
@@ -13,12 +12,6 @@ import Footer from "../modules/footer";
 const Home: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ characters }) => {
-  const [animationIndex, setAnimationIndex] = useState(0);
-
-  const onAnimationComplete = () => {
-    setAnimationIndex(animationIndex + 1);
-  };
-
   return (
     <div>
       <motion.div id="grid" className="h-fit p-10">
@@ -26,17 +19,11 @@ const Home: NextPage<
           {characters.map((character, i) => {
             return (
               <motion.div
-                whileHover={{ scale: 1.4 }}
                 initial={{ opacity: 0 }}
-                onAnimationComplete={onAnimationComplete}
-                animate={
-                  animationIndex >= i
-                    ? {
-                        opacity: 1,
-                        transition: { duration: 0.01 },
-                      }
-                    : {}
-                }
+                animate={{
+                  opacity: 1,
+                  transition: { duration: 0.1, delay: 0.1 * i },
+                }}
                 className="relative h-24 w-24 overflow-hidden rounded-lg bg-TextWhite"
                 key={`card-${i}`}
               >

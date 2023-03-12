@@ -8,7 +8,6 @@ const BaseLayout = ({
 }): JSX.Element => {
   return (
     <div className="h-screen w-screen overflow-y-hidden">
-      <div id="modal-root" />
       <div className="flex h-screen flex-col overflow-auto bg-primary ">
         <Nav />
         <div>{children}</div>

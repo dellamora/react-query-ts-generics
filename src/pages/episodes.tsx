@@ -5,10 +5,12 @@ import React, { useState, useEffect } from "react";
 import useRickAndMortyAPI from "../common/hooks/useRickAndMortyAPI";
 import ContainerGrid from "../common/components/containerGrid";
 import { useInView } from "react-intersection-observer";
+import { Episode } from "../domain/interfaces";
 
 const pages: React.FC = (): JSX.Element => {
   const [search, setSearch] = useState("");
   const [ref, inView] = useInView({});
+  const [selected, setSeleceted] = useState<Episode | null>(null);
 
   const {
     data: episodes,
@@ -24,6 +26,7 @@ const pages: React.FC = (): JSX.Element => {
     }, 100);
     return () => clearTimeout(timeOut);
   }, [inView, isFetchingNextPage]);
+  console.log(selected);
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6 ">
@@ -31,12 +34,16 @@ const pages: React.FC = (): JSX.Element => {
       <ContainerGrid>
         {episodes.map(episode => {
           return (
-            <Card
+            <button
               key={`episode-${episode.id}`}
-              title={episode.name}
-              subTitle={episode.air_date}
-              append={episode.episode}
-            />
+              onClick={() => setSeleceted(episode)}
+            >
+              <Card
+                title={episode.name}
+                subTitle={episode.air_date}
+                append={episode.episode}
+              />
+            </button>
           );
         })}
         {!isLoading && !isFetchingNextPage && hasNextPage ? (
