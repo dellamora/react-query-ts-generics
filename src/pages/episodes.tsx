@@ -34,16 +34,12 @@ const pages: React.FC = (): JSX.Element => {
       <ContainerGrid>
         {episodes.map(episode => {
           return (
-            <button
+            <Card
               key={`episode-${episode.id}`}
-              onClick={() => setSeleceted(episode)}
-            >
-              <Card
-                title={episode.name}
-                subTitle={episode.air_date}
-                append={episode.episode}
-              />
-            </button>
+              title={episode.name}
+              subTitle={episode.air_date}
+              append={episode.episode}
+            />
           );
         })}
         {!isLoading && !isFetchingNextPage && hasNextPage ? (
